@@ -373,8 +373,8 @@ def compose (db, source, give_asset, give_quantity, get_asset, get_quantity, exp
     cursor = db.cursor()
 
     # resolve subassets
-    give_asset = util.resolve_subasset_longname(give_asset)
-    get_asset = util.resolve_subasset_longname(get_asset)
+    give_asset = util.resolve_subasset_longname(db, give_asset)
+    get_asset = util.resolve_subasset_longname(db, get_asset)
 
     # Check balance.
     if give_asset != config.BTC:

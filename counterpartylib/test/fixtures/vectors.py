@@ -3596,6 +3596,22 @@ UNITTEST_VECTOR = {
             'in': ('foobar', DP['default_block_index']),
             'error': (exceptions.AssetError, 'No such asset: foobar')
         }],
+        'resolve_subasset_longname': [{
+            'in': ('XCP',),
+            'out': 'XCP'
+        }, {
+            'in': ('PARENT',),
+            'out': 'PARENT'
+        }, {
+            'in': ('PARENT.nonexistent.subasset',),
+            'out': 'PARENT.nonexistent.subasset'
+        }, {
+            'in': ('PARENT.ILEGAL^^^',),
+            'out': 'PARENT.ILEGAL^^^'
+        }, {
+            'in': ('PARENT.already.issued',),
+            'out': 'A{}'.format(26**12 + 101)
+        }],
         'debit': [{
             'in': (ADDR[0], 'XCP', 1),
             'out': None
@@ -3843,3 +3859,5 @@ UNITTEST_VECTOR = {
         }]
     }
 }
+
+UNITTEST_VECTOR = {'util': {'resolve_subasset_longname': UNITTEST_VECTOR['util']['resolve_subasset_longname']}}

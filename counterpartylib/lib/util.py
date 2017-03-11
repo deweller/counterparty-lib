@@ -209,7 +209,7 @@ def get_asset_name (db, asset_id, block_index):
 
 # If asset_name is an existing subasset (PARENT.child) then return the corresponding numeric asset name (A12345)
 #   If asset_name is not an existing subasset, then return the unmodified asset_name
-def resolve_subasset_longname(asset_name):
+def resolve_subasset_longname(db, asset_name):
     if enabled('subassets'):
         subasset_longname = None
         try:
