@@ -3859,5 +3859,3 @@ UNITTEST_VECTOR = {
         }]
     }
 }
-
-UNITTEST_VECTOR = {'util': {'resolve_subasset_longname': UNITTEST_VECTOR['util']['resolve_subasset_longname']}}
